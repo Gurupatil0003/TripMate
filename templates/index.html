@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+{% load static %}
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static "css/styleone.css" %}">
+  <link rel="stylesheet" href="{% static "css/style.css" %}">
+  <link href="https://fonts.googleapis.com/css?family=Spicy+Rice&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Viga&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+    {% block content %}
+    <div class="main">
+      <div id="circle">
+
+        <div id="triangle-left">
+
+        </div>
+        <div class="top">
+          <img class="logo" src="{% static "img/logo.png" %}" alt="">
+          <h1 class="title"><b>TRAVEL TRIP</b></h1>
+        </div>
+        <a href="{% url 'package' %}">
+        <div id="one"class="feature one shadow-lg p-2 rounded">
+            <h5><ion-icon name="pricetags-sharp"></ion-icon>PACKAGES</h5>
+            <p>Get customized packages as per your convenience</p>
+        </div></a>
+        <a href="{% url 'flights' %}">
+        <div id="two"class="feature two shadow-lg p-3 rounded">
+            <h5><ion-icon name="airplane-sharp"></ion-icon>FLIGHTS</h5>
+            <p>Get exciting deals on flights</p>
+        </div></a>
+        <a href="{% url 'hotels' %}">
+        <div id="three"class="feature three shadow-lg p-3 rounded">
+            <h5><ion-icon name="bed-sharp"></ion-icon>HOTELS</h5>
+            <p>Get exciting deals on hotels</p>
+        </div></a>
+        <a href="{% url 'places' %}">
+        <div id="four" class="feature four shadow-lg p-3 rounded">
+          <h5><ion-icon name="chatbox-ellipses-sharp"></ion-icon>PLACES</h5>
+          <p>Famous places and weekend getaways</p>
+        </div></a>
+        <img src="{% static "img/travel.png" %}" class="image"alt="">
+      </div>
+      <nav class="navbar sticky-top" style="background:none">
+        <ul class="nav">
+          {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'logout' %}">LOGOUT</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'package' %}">PACKAGES</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'flights' %}">FLIGHTS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'hotels' %}">HOTELS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'dashboard' %}">DASHBOARD</a>
+        </li>
+             {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login_url' %}">LOGIN</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'register_url' %}">REGISTER</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'package' %}">PACKAGES</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'flights' %}">FLIGHTS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'hotels' %}">HOTELS</a>
+        </li>
+      </ul>
+      {% endif %}
+    </nav>
+</div>
+<div class="footer">
+  <div class="container">
+    <br><br>
+    <h2 class="footer-title">About Us</h2>
+    <p class="footer-para">Welcome to Travel Trip, your gateway to unforgettable journeys! We believe that travel is more than just visiting new places—it's about creating stories, experiencing cultures, and making memories that last a lifetime.
+
+      Whether you're a thrill-seeker looking for adventure, a luxury traveler seeking comfort, or a budget explorer planning your next escape, we've got you covered. From breathtaking destinations and top-rated hotels to seamless flight bookings and exclusive travel packages, we ensure a hassle-free experience tailored just for you.</p>
+
+    <br><br>
+    <h5 class="footer-subtitle">Project Created By Guru Patil</h5>
+    <p class="footer-para">
+      <a href="https://github.com/Gurupatil0003" target="_blank">
+        <ion-icon name="logo-github"></ion-icon> GitHub
+      </a> &nbsp; | &nbsp;
+      <a href="https://www.linkedin.com/in/guranna-gouda-039870228/" target="_blank">
+        <ion-icon name="logo-linkedin"></ion-icon> LinkedIn
+      </a>
+    </p>
+
+    <br><br>
+    <p class="footer-para copy">Copyright <ion-icon name="at-circle-outline"></ion-icon> traveltrip.org</p>
+  </div>
+</div>
+  {% endblock %}
+<script type="text/javascript">
+function delay (URL) {
+  setTimeout( function() { window.location = URL }, 3000 );
+}
+</script>
+<script type="text/javascript">
+  function ani(){
+    document.getElementById('img').className ='click';
+  }
+</script>
+  <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+</html>
